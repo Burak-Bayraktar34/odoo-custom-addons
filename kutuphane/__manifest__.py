@@ -17,7 +17,7 @@ Kütüphanedeki kitapları ve ödünç verme işlemlerini takip eden alıştırm
     'depends': ['base'],
 
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
