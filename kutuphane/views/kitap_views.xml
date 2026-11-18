@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- LIST VIEW -->
+    <record id="kitap_view_list" model="ir.ui.view">
+        <field name="name">kutuphane.kitap.list</field>
+        <field name="model">kutuphane.kitap</field>
+        <field name="arch" type="xml">
+            <list string="Kitaplar">
+                <field name="name"/>
+                <field name="yazar"/>
+                <field name="durum"/>
+                <field name="sayfa_sayisi"/>
+                <field name="fiyat"/>
+                <field name="yayin_tarihi"/>
+            </list>
+        </field>
+    </record>
+
+        <!-- FORM VIEW -->
+    <record id="kitap_view_form" model="ir.ui.view">
+        <field name="name">kutuphane.kitap.form</field>
+        <field name="model">kutuphane.kitap</field>
+        <field name="arch" type="xml">
+            <form string="Kitap">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Örn. Suç ve Ceza"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="yazar"/>
+                            <field name="durum"/>
+                            <field name="yayin_tarihi"/>
+                        </group>
+                        <group>
+                            <field name="sayfa_sayisi"/>
+                            <field name="fiyat"/>
+                            <field name="ciltli_mi"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Açıklama">
+                            <field name="aciklama"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <!-- SEARCH VIEW -->
+    <record id="kitap_view_search" model="ir.ui.view">
+        <field name="name">kutuphane.kitap.search</field>
+        <field name="model">kutuphane.kitap</field>
+        <field name="arch" type="xml">
+            <search string="Kitap Ara">
+                <field name="name"/>
+                <field name="yazar"/>
+                <filter string="Rafta" name="rafta" domain="[('durum', '=', 'rafta')]"/>
+                <filter string="Ödünçte" name="oduncte" domain="[('durum', '=', 'oduncte')]"/>
+                <separator/>
+                <filter string="Kısa kitaplar (200 sayfa altı)" name="kisa" domain="[('sayfa_sayisi', '&lt;', 200)]"/>
+                <group>
+                    <filter string="Duruma göre" name="grupla_durum" context="{'group_by': 'durum'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACTION: menüye tıklanınca kutuphane.kitap modelini liste ve form ekranıyla açar -->
+    <record id="kitap_action" model="ir.actions.act_window">
+        <field name="name">Kitaplar</field>
+        <field name="res_model">kutuphane.kitap</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

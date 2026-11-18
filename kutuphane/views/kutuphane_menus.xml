@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="kutuphane_menu_root" name="Kütüphane">
+        <menuitem id="kutuphane_menu_katalog" name="Katalog">
+            <menuitem id="kutuphane_menu_kitaplar" action="kitap_action"/>
+        </menuitem>
+    </menuitem>
+
+</odoo>
