@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- LIST VIEW -->
+    <record id="yazar_view_list" model="ir.ui.view">
+        <field name="name">kutuphane.yazar.list</field>
+        <field name="model">kutuphane.yazar</field>
+        <field name="arch" type="xml">
+            <list string="Yazarlar">
+                <field name="name"/>
+                <field name="dogum_yili"/>
+                <field name="ulke"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+    <record id="yazar_view_form" model="ir.ui.view">
+        <field name="name">kutuphane.yazar.form</field>
+        <field name="model">kutuphane.yazar</field>
+        <field name="arch" type="xml">
+            <form string="Yazar">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Örn. Sabahattin Ali"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="dogum_yili"/>
+                        <field name="ulke"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="yazar_action" model="ir.actions.act_window">
+        <field name="name">Yazarlar</field>
+        <field name="res_model">kutuphane.yazar</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

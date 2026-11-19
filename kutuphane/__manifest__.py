@@ -19,7 +19,8 @@ Kütüphanedeki kitapları ve ödünç verme işlemlerini takip eden alıştırm
     'data': [
         'security/ir.access.csv', #burası normald yorum satırlı geliyor ama biz bunu silerek erişim hakkı veriyoruz.
         'views/kitap_views.xml',
-        'views/kutuphane_menus.xml',
+        'views/yazar_views.xml',
+        'views/kutuphane_menus.xml'
     ],
     'demo': [
         'demo/demo.xml',

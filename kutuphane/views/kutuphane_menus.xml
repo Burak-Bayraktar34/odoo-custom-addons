@@ -3,7 +3,8 @@
 
     <menuitem id="kutuphane_menu_root" name="Kütüphane">
         <menuitem id="kutuphane_menu_katalog" name="Katalog">
-            <menuitem id="kutuphane_menu_kitaplar" action="kitap_action"/>
+            <menuitem id="kutuphane_menu_kitaplar" action="kitap_action" sequence="10"/>
+            <menuitem id="kutuphane_menu_yazarlar" action="yazar_action" sequence="20"/>
         </menuitem>
     </menuitem>
 
