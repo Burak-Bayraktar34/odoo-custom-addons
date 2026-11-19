@@ -16,7 +16,8 @@ class Kitap(models.Model):
         default="rafta",
     )
 
-    yazar = fields.Char(string="Yazar")
+    yazar_id = fields.Many2one("kutuphane.yazar", string="Yazar")
+    tur_ids = fields.Many2many("kutuphane.tur", string="Türler")
     aciklama = fields.Text(string="Açıklama")
     sayfa_sayisi = fields.Integer(string="Sayfa Sayısı")
     fiyat = fields.Float(string="Fiyat")

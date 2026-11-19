@@ -8,3 +8,4 @@ class Yazar(models.Model):
     name = fields.Char(string="Ad Soyad", required=True)
     dogum_yili = fields.Integer(string="Doğum Yılı")
     ulke = fields.Char(string="Ülke")
+    kitap_ids = fields.One2many("kutuphane.kitap", "yazar_id", string="Kitaplar")

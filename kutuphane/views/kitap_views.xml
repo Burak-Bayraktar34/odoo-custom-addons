@@ -8,11 +8,13 @@
         <field name="arch" type="xml">
             <list string="Kitaplar">
                 <field name="name"/>
-                <field name="yazar"/>
+                <field name="yazar_id"/>
+                <field name="tur_ids" widget="many2many_tags"/>
                 <field name="durum"/>
                 <field name="sayfa_sayisi"/>
                 <field name="fiyat"/>
                 <field name="yayin_tarihi"/>
+                
             </list>
         </field>
     </record>
@@ -31,7 +33,8 @@
                     </div>
                     <group>
                         <group>
-                            <field name="yazar"/>
+                            <field name="yazar_id"/>
+                            <field name="tur_ids" widget="many2many_tags"/>
                             <field name="durum"/>
                             <field name="yayin_tarihi"/>
                         </group>
@@ -58,7 +61,7 @@
         <field name="arch" type="xml">
             <search string="Kitap Ara">
                 <field name="name"/>
-                <field name="yazar"/>
+                <field name="yazar_id"/>
                 <filter string="Rafta" name="rafta" domain="[('durum', '=', 'rafta')]"/>
                 <filter string="Ödünçte" name="oduncte" domain="[('durum', '=', 'oduncte')]"/>
                 <separator/>

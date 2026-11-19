@@ -1,3 +1,4 @@
 id,name,model_id,group_id/id,operation,domain
 access_kutuphane_kitap_user,access_kutuphane_kitap_user,kutuphane.kitap,base.group_user,crud,
 access_kutuphane_yazar_user,access_kutuphane_yazar_user,kutuphane.yazar,base.group_user,crud,
+access_kutuphane_tur_user,access_kutuphane_tur_user,kutuphane.tur,base.group_user,crud,
