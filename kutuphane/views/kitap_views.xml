@@ -14,17 +14,23 @@
                 <field name="sayfa_sayisi"/>
                 <field name="fiyat"/>
                 <field name="yayin_tarihi"/>
-                
             </list>
         </field>
     </record>
 
-        <!-- FORM VIEW -->
+    <!-- FORM VIEW -->
     <record id="kitap_view_form" model="ir.ui.view">
         <field name="name">kutuphane.kitap.form</field>
         <field name="model">kutuphane.kitap</field>
         <field name="arch" type="xml">
             <form string="Kitap">
+                <header>
+                    <button name="action_odunc_ver" type="object" string="Ödünç Ver"
+                            class="btn-primary" invisible="durum != 'rafta'"/>
+                    <button name="action_rafa_koy" type="object" string="Rafa Koy"
+                            invisible="durum == 'rafta'"/>
+                    <field name="durum" widget="statusbar"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -35,7 +41,6 @@
                         <group>
                             <field name="yazar_id"/>
                             <field name="tur_ids" widget="many2many_tags"/>
-                            <field name="durum"/>
                             <field name="yayin_tarihi"/>
                         </group>
                         <group>
@@ -54,7 +59,7 @@
         </field>
     </record>
 
-        <!-- SEARCH VIEW -->
+    <!-- SEARCH VIEW -->
     <record id="kitap_view_search" model="ir.ui.view">
         <field name="name">kutuphane.kitap.search</field>
         <field name="model">kutuphane.kitap</field>
@@ -64,10 +69,12 @@
                 <field name="yazar_id"/>
                 <filter string="Rafta" name="rafta" domain="[('durum', '=', 'rafta')]"/>
                 <filter string="Ödünçte" name="oduncte" domain="[('durum', '=', 'oduncte')]"/>
+                <filter string="Kayıp" name="kayip" domain="[('durum', '=', 'kayip')]"/>
                 <separator/>
                 <filter string="Kısa kitaplar (200 sayfa altı)" name="kisa" domain="[('sayfa_sayisi', '&lt;', 200)]"/>
                 <group>
                     <filter string="Duruma göre" name="grupla_durum" context="{'group_by': 'durum'}"/>
+                    <filter string="Yazara göre" name="grupla_yazar" context="{'group_by': 'yazar_id'}"/>
                 </group>
             </search>
         </field>

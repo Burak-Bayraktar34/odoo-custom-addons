@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class Kitap(models.Model):
@@ -24,4 +25,20 @@ class Kitap(models.Model):
     yayin_tarihi = fields.Date(string="Yayın Tarihi")
     ciltli_mi = fields.Boolean(string="Ciltli mi?")
 
+    def action_odunc_ver(self):
+        for kitap in self:
+            kitap.durum = "oduncte"
+        return True
 
+    def action_rafa_koy(self):
+        for kitap in self:
+            kitap.durum = "rafta"
+        return True
+
+    @api.constrains("sayfa_sayisi", "fiyat")
+    def _check_negatif_olmasin(self):
+        for kitap in self:
+            if kitap.sayfa_sayisi < 0:
+                raise ValidationError("Sayfa sayısı negatif olamaz.")
+            if kitap.fiyat < 0:
+                raise ValidationError("Fiyat negatif olamaz.")

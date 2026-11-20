@@ -10,6 +10,7 @@
                 <field name="name"/>
                 <field name="dogum_yili" options="{'enable_formatting': false}"/>
                 <field name="ulke"/>
+                <field name="kitap_sayisi"/>
             </list>
         </field>
     </record>
@@ -29,6 +30,7 @@
                     <group>
                         <field name="dogum_yili" options="{'enable_formatting': false}"/>
                         <field name="ulke"/>
+                        <field name="kitap_sayisi"/>
                     </group>
                     <notebook>
                         <page string="Kitaplar">
