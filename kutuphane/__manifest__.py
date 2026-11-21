@@ -17,10 +17,11 @@ Kütüphanedeki kitapları ve ödünç verme işlemlerini takip eden alıştırm
     'depends': ['base'],
 
     'data': [
-        'security/ir.access.csv', #burası normald yorum satırlı geliyor ama biz bunu silerek erişim hakkı veriyoruz.
+        'security/ir.access.csv',
         'views/kitap_views.xml',
         'views/yazar_views.xml',
-        'views/kutuphane_menus.xml'
+        'views/partner_views.xml',
+        'views/kutuphane_menus.xml',
     ],
     'demo': [
         'demo/demo.xml',
@@ -28,4 +29,3 @@ Kütüphanedeki kitapları ve ödünç verme işlemlerini takip eden alıştırm
 
     'application': True,
 }
-
